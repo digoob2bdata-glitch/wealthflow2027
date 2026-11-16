@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WealthFlow 2027: U.S. Personal Finance, EMI & Stock Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slateNavy: '#0F172A',
+                        slateDeep: '#1E293B',
+                        emeraldAccent: '#10B981',
+                        cyanAccent: '#06B6D4',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 font-bold text-xl">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-slateNavy">WealthFlow <span class="text-emerald-500">2027</span></span>
+                    <span class="block text-xs font-medium text-slate-400">U.S. Market Edition</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                <a href="#overview" class="hover:text-emerald-600 transition">Overview</a>
+                <a href="#features" class="hover:text-emerald-600 transition">Tabs & Features</a>
+                <a href="#calculator" class="hover:text-emerald-600 transition">Live Demo</a>
+                <a href="#pricing" class="hover:text-emerald-600 transition">Pricing</a>
+                <a href="#faq" class="hover:text-emerald-600 transition">FAQ</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="#pricing" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-lg shadow-emerald-600/25 transition transform active:scale-95">
+                    <i class="fa-solid fa-bolt mr-2"></i> Get Access - $5
+                </a>
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 font-medium shadow-xl">
+            <a href="#overview" class="block text-slate-600 hover:text-emerald-600">Overview</a>
+            <a href="#features" class="block text-slate-600 hover:text-emerald-600">Tabs & Features</a>
+            <a href="#calculator" class="block text-slate-600 hover:text-emerald-600">Live Demo</a>
+            <a href="#pricing" class="block text-slate-600 hover:text-emerald-600">Pricing</a>
+            <a href="#faq" class="block text-slate-600 hover:text-emerald-600">FAQ</a>
+            <a href="#pricing" class="w-full text-center block py-3 rounded-xl text-white bg-emerald-600 font-bold shadow-md">Get Instant Access - $5</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="overview" class="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 bg-gradient-to-b from-white via-slate-50 to-slate-100">
+        <div class="absolute inset-0 bg-[radial-gradient(#10b98115_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto space-y-6">
+                <!-- Badge -->
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold tracking-wide uppercase shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Updated for U.S. Tax Year 2027 • Google Sheets & Excel</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slateNavy tracking-tight leading-[1.1]">
+                    Take Control of Your Money in <span class="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent">2027</span> for Just <span class="text-emerald-600">$5</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
+                    The ultimate automated budget, debt EMI & S&P 500 stock tracker. Zero setup headaches. Designed specifically for American income, student/auto loans, and wealth building.
+                </p>
+
+                <!-- CTA Button -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-xl shadow-emerald-600/30 transform transition hover:-translate-y-0.5 active:translate-y-0 text-center flex items-center justify-center space-x-3">
+                        <i class="fa-solid fa-cloud-arrow-down text-xl"></i>
+                        <span>Download WealthFlow 2027 — $5</span>
+                    </a>
+                    <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 shadow-sm transition text-center flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-calculator text-emerald-600"></i>
+                        <span>Test Live Calculator</span>
+                    </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-slate-500">
+                    <span class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Instant Download via PDF Link</span>
+                    <span class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Works on Free Google Sheets</span>
+                    <span class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Lifetime Updates Included</span>
+                </div>
+            </div>
+
+            <!-- Visual Mockup Card Preview -->
+            <div class="mt-16 max-w-5xl mx-auto">
+                <div class="rounded-3xl bg-slateNavy p-3 sm:p-6 shadow-2xl border border-slate-700/50">
+                    <div class="flex items-center justify-between mb-4 px-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                            <span class="text-xs text-slate-400 ml-2 font-mono">WealthFlow_2027_Master_Dashboard.xlsx</span>
+                        </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400">Live Synchronized</span>
+                    </div>
+
+                    <!-- Dashboard Mockup UI -->
+                    <div class="bg-slate-900 rounded-2xl p-4 sm:p-6 text-white space-y-6">
+                        <!-- KPI Cards Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                                <span class="text-xs text-slate-400 font-medium">Monthly Take-Home</span>
+                                <div class="text-2xl font-extrabold text-white mt-1">$5,800.00</div>
+                                <span class="text-xs text-emerald-400 mt-1 block"><i class="fa-solid fa-arrow-up mr-1"></i> 100% Verified U.S. Net</span>
+                            </div>
+                            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                                <span class="text-xs text-slate-400 font-medium">Living & EMI Expenses</span>
+                                <div class="text-2xl font-extrabold text-amber-400 mt-1">$3,750.00</div>
+                                <span class="text-xs text-slate-400 mt-1 block">Rent + Groceries + Loans</span>
+                            </div>
+                            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                                <span class="text-xs text-slate-400 font-medium">S&P 500 / Roth IRA</span>
+                                <div class="text-2xl font-extrabold text-emerald-400 mt-1">$1,300.00</div>
+                                <span class="text-xs text-emerald-400 mt-1 block"><i class="fa-solid fa-shield-halved mr-1"></i> Systematic Investing</span>
+                            </div>
+                            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                                <span class="text-xs text-slate-400 font-medium">Net Cash Surplus</span>
+                                <div class="text-2xl font-extrabold text-cyan-400 mt-1">$750.00</div>
+                                <span class="text-xs text-cyan-300 mt-1 block">Saved in HYSA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included Section -->
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-emerald-600 uppercase">Complete 5-in-1 Architecture</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slateNavy">Everything You Need to Master Your Finances in 2027</h3>
+                <p class="text-slate-600 text-base">Built with robust, foolproof formulas that never break when you add rows or customize your categories.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:shadow-xl hover:border-emerald-500/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slateNavy mb-2">1. 2027 Automated Dashboard</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Live KPI cards and 12-month Jan–Dec cash flow overview. Instantly see your savings rate, income vs. expense ratio, and net worth trajectory.</p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:shadow-xl hover:border-emerald-500/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-cyan-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slateNavy mb-2">2. Setup & Budget Tab</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Quick start guide with currency selectors and customizable categories mapped to U.S. living standards (Housing, Groceries, EMIs, Investing).</p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:shadow-xl hover:border-emerald-500/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-receipt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slateNavy mb-2">3. Transaction Log Ledger</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Pre-formatted transaction ledger featuring smart dropdown lists for months, categories, and payment methods (Direct Deposit, Brokerage ACH, Auto-Pay).</p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:shadow-xl hover:border-emerald-500/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-rose-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-credit-card"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slateNavy mb-2">4. Debt EMI & Payoff Calculator</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Dedicated tracker for U.S. Auto Loans, Student Loans, and Credit Card EMIs. Includes a Debt Snowball extra payment allocator and automated payoff countdowns.</p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:shadow-xl hover:border-emerald-500/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-teal-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slateNavy mb-2">5. Net Worth & Stock Tracker</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Systematic dollar-cost averaging tracker for S&P 500 index funds (VOO/VTI), individual stocks, Roth IRAs, and monthly asset-vs-liability growth charts.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-slateNavy to-slate-800 rounded-2xl p-8 text-white shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="inline-block px-3 py-1 rounded bg-emerald-500 text-xs font-bold uppercase mb-4 text-slate-900">U.S. Optimized</div>
+                        <h4 class="text-xl font-bold mb-2">Built for American Markets</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Every formula is calibrated in USD ($) with standard U.S. debt structures and retirement account allocations built right in.</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-slate-700 flex items-center justify-between text-xs text-emerald-400 font-semibold">
+                        <span><i class="fa-solid fa-shield-check mr-1"></i> Instant Access</span>
+                        <span>$5 Only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Interactive Calculator Simulator -->
+    <section id="calculator" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-bold tracking-widest text-emerald-400 uppercase">Live Interactive Demo</span>
+                <h3 class="text-3xl sm:text-4xl font-extrabold">Test Drive Your 2027 Cash Flow Model</h3>
+                <p class="text-slate-400 text-base">Adjust your monthly U.S. take-home income and expenses below to instantly see your remaining net surplus and investing rate.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-slate-800 rounded-3xl p-6 sm:p-10 border border-slate-700 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <!-- Controls -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">Monthly Net Income (USD):</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 font-bold">$</span>
+                                <input type="number" id="calc-income" value="5800" min="1000" max="30000" step="100" class="w-full pl-8 pr-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white font-bold focus:outline-none focus:border-emerald-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">Housing & Groceries (Needs): <span id="val-housing" class="text-emerald-400 font-bold">$2,050</span></label>
+                            <input type="range" id="slider-housing" value="2050" min="800" max="5000" step="50" class="w-full accent-emerald-500 cursor-pointer">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">Debt EMIs (Auto / Student Loans): <span id="val-emi" class="text-amber-400 font-bold">$750</span></label>
+                            <input type="range" id="slider-emi" value="750" min="0" max="2500" step="25" class="w-full accent-amber-500 cursor-pointer">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">S&P 500 / Roth IRA Investing: <span id="val-invest" class="text-emerald-400 font-bold">$1,300</span></label>
+                            <input type="range" id="slider-invest" value="1300" min="0" max="3500" step="50" class="w-full accent-emerald-500 cursor-pointer">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">Lifestyle & Wants: <span id="val-wants" class="text-cyan-400 font-bold">$400</span></label>
+                            <input type="range" id="slider-wants" value="400" min="0" max="1500" step="25" class="w-full accent-cyan-500 cursor-pointer">
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div class="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-700 flex flex-col justify-between space-y-6">
+                        <div>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Projected Monthly Summary</span>
+                            <h4 class="text-2xl font-extrabold text-white mt-1">2027 Cash Flow Breakdown</h4>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center pb-3 border-b border-slate-800">
+                                <span class="text-sm text-slate-300">Total Outflows:</span>
+                                <span id="res-outflows" class="text-lg font-bold text-amber-400">$4,500.00</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-3 border-b border-slate-800">
+                                <span class="text-sm text-slate-300">Stock & Retirement Rate:</span>
+                                <span id="res-invest-rate" class="text-lg font-bold text-emerald-400">22.4%</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+                                <span class="text-sm text-slate-300 font-bold">Net Monthly Cash Surplus:</span>
+                                <span id="res-surplus" class="text-2xl font-extrabold text-cyan-400">$1,300.00</span>
+                            </div>
+                        </div>
+                        <a href="#pricing" class="w-full py-3.5 rounded-xl text-sm font-bold text-slate-900 bg-emerald-400 hover:bg-emerald-300 transition text-center shadow-lg shadow-emerald-400/20 block">
+                            Get This Full Google Sheet Template — $5
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Checkout Section -->
+    <section id="pricing" class="py-24 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">One-Time Investment</span>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slateNavy">Get Instant Access to WealthFlow 2027</h3>
+                <p class="text-slate-600 text-base">No recurring subscriptions. Buy once, use forever across all your devices.</p>
+            </div>
+
+            <!-- Pricing Card with Razorpay Button -->
+            <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-2xl border-2 border-emerald-500/30 overflow-hidden relative">
+                <div class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-extrabold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider">
+                    Best Value
+                </div>
+
+                <div class="p-8 sm:p-12 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Complete Digital Package</span>
+                        <h4 class="text-2xl font-extrabold text-slateNavy mt-1">WealthFlow 2027 U.S. Edition</h4>
+                        <p class="text-slate-500 text-sm mt-2">Automated Google Sheets & Excel Template + PDF Setup Guide with Force-Copy Link.</p>
+                    </div>
+
+                    <div class="flex items-baseline space-x-2 py-4 border-y border-slate-100">
+                        <span class="text-5xl sm:text-6xl font-black text-slateNavy">$5</span>
+                        <span class="text-slate-400 font-medium line-through">$29</span>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full ml-auto">Launch Special</span>
+                    </div>
+
+                    <div class="space-y-3.5 text-sm text-slate-700">
+                        <div class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-3 text-base"></i> 5 Synchronized Professional Tabs</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-3 text-base"></i> U.S. Debt EMI & Snowball Calculator</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-3 text-base"></i> VOO/VTI S&P 500 Portfolio Tracker</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-3 text-base"></i> Works on Google Sheets & Microsoft Excel</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-3 text-base"></i> Instant Digital Delivery via PDF</div>
+                    </div>
+
+                    <!-- Razorpay Button Integration -->
+                    <div class="pt-4 flex justify-center">
+                        <form>
+                            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_U0ucdqpVg9aX9K" async></script>
+                        </form>
+                    </div>
+
+                    <div class="text-center space-y-2 pt-2">
+                        <p class="text-xs text-slate-400"><i class="fa-solid fa-lock text-emerald-500 mr-1"></i> Secured International Payment via Razorpay</p>
+                        <p class="text-xs text-slate-500">Instant access link provided immediately after checkout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-200 text-center text-slate-500 text-sm px-6 bg-slate-50">
+        <p>&copy; 2027 WealthFlow Dashboard. Built for U.S. Markets. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive Calculator Script -->
+    <script>
+        const incomeInput = document.getElementById('calc-income');
+        const sliderHousing = document.getElementById('slider-housing');
+        const sliderEmi = document.getElementById('slider-emi');
+        const sliderInvest = document.getElementById('slider-invest');
+        const sliderWants = document.getElementById('slider-wants');
+
+        const valHousing = document.getElementById('val-housing');
+        const valEmi = document.getElementById('val-emi');
+        const valInvest = document.getElementById('val-invest');
+        const valWants = document.getElementById('val-wants');
+
+        const resOutflows = document.getElementById('res-outflows');
+        const resInvestRate = document.getElementById('res-invest-rate');
+        const resSurplus = document.getElementById('res-surplus');
+
+        function updateCalculator() {
+            const income = parseFloat(incomeInput.value) || 0;
+            const housing = parseFloat(sliderHousing.value) || 0;
+            const emi = parseFloat(sliderEmi.value) || 0;
+            const invest = parseFloat(sliderInvest.value) || 0;
+            const wants = parseFloat(sliderWants.value) || 0;
+
+            valHousing.textContent = '$' + housing.toLocaleString();
+            valEmi.textContent = '$' + emi.toLocaleString();
+            valInvest.textContent = '$' + invest.toLocaleString();
+            valWants.textContent = '$' + wants.toLocaleString();
+
+            const totalOutflows = housing + emi + invest + wants;
+            const surplus = income - totalOutflows;
+            const investRate = income > 0 ? (invest / income) * 100 : 0;
+
+            resOutflows.textContent = '$' + totalOutflows.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            resInvestRate.textContent = investRate.toFixed(1) + '%';
+            resSurplus.textContent = '$' + surplus.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+
+        [incomeInput, sliderHousing, sliderEmi, sliderInvest, sliderWants].forEach(el => {
+            el.addEventListener('input', updateCalculator);
+        });
+
+        updateCalculator();
+    </script>
+</body>
+</html>
